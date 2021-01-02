@@ -1,0 +1,38 @@
+<!-- 购物车列表 -->
+<!-- 
+    @params
+    products     购物车商品   必须
+    bindsubmit   结算事件     可选
+    binddelete   删除事件     可选
+ -->
+<view class="container">
+    <block wx:for="{{ products }}" wx:key="id">
+        <view class="itemlist">
+            <switch class="swicth" bindchange="_changeChecked" data-index="{{ index }}" checked="{{ item.checked }}" type="checkbox"></switch>
+            <!-- 图片 -->
+            <image class="image" src="{{ item.goodspic }}"></image>
+            <view class="info">
+                <view class="infoaction">
+                    <view>{{ item.goodsname }}</view>
+                    <view bindtap="_cartDelete" data-id="{{ item.id }}" data-index="{{ index }}">删除</view>
+                </view>
+               
+                <view class="infolist">
+                    <view>￥{{ item.price }}</view>
+                    <view class="number">
+                        <text class="text" bindtap="desc" data-index="{{ index }}" >-</text>
+                        <text class="text">{{ item.num }}</text>
+                        <text class="text" bindtap="asc" data-index="{{ index }}">+</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+<view class="bottom">
+    <switch type="checkbox" bindchange="_changeAllChecked" checked="{{ allChecked }}" class="bottom-l">全选</switch>
+    <view class="bottom-r">
+        <view>合计：{{ totalPrice }}</view>
+        <view class="jiesuan" bindtap="formSubmit">结算（{{ totalNum }}）</view>
+    </view>
+</view>

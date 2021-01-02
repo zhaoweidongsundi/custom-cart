@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "my-cart":"/components/cart/cart"
+  },
+  "navigationBarTitleText": "购物车",
+  "navigationBarBackgroundColor": "#123456",
+  "navigationBarTextStyle": "white"
+}

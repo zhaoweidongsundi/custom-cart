@@ -1,0 +1,25 @@
+<!-- 购物车 -->
+<!-- 
+    @params
+    products     购物车商品   必须
+
+        products:[  // 商品数据格式，源码可根据实际情况更改
+            id:2,
+            goodsname:"苹果手机",
+            goodspic:"/pages/cart/1.jpg",
+            num:2,
+            price:2000,
+            checked:true
+        ]
+    bindsubmit   结算事件     可选
+        返回值{
+            totalPrice， // 总价
+            totalNum， // 总数据
+        }  
+    binddelete   删除事件     可选
+         返回值{
+            index, //位置
+            id //  id
+        }  
+ -->
+<my-cart products="{{ products }}" binddelete="_cartDelete" bindsubmit="_cartSubmit"></my-cart>
